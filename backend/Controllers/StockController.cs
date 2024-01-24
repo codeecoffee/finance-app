@@ -15,13 +15,10 @@ namespace backend.Controllers
     [ApiController]
     public class StockController : ControllerBase
     {
-        private readonly ApplicationDBContext _context;
         private readonly IStockRepository _stockRepo;
-        public StockController(ApplicationDBContext context, IStockRepository stockRepo)
-        {
-            _stockRepo = stockRepo;
-            _context = context;
-        }
+        public StockController(IStockRepository stockRepo)
+        { _stockRepo = stockRepo; }
+        
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
