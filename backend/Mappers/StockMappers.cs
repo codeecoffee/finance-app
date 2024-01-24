@@ -22,7 +22,8 @@ namespace backend.Mappers
                 MarketCap = stockModel.MarketCap
             };
         }
-        public static Stock ToStockFromCreateDTO(this CreateStockRequestDto stockDto){
+        public static Stock ToStockFromCreateDTO(this CreateStockRequestDto stockDto)
+        {
             return new Stock
             {
                 Symbol = stockDto.Symbol,
