@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using backend.Data;
 using backend.Dtos.Stock;
+using backend.Helpers;
 using backend.Interface;
 using backend.Mappers;
 using Microsoft.AspNetCore.Mvc;
@@ -20,9 +21,9 @@ namespace backend.Controllers
         { _stockRepo = stockRepo; }
         
         [HttpGet]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAll([FromQuery] QueryObject query)
         {
-            var stocks = await _stockRepo.GetAllAsync();
+            var stocks = await _stockRepo.GetAllAsync(query);
             var stockDto = stocks.Select(s => s.ToStockDto());
 
             return Ok(stocks);
