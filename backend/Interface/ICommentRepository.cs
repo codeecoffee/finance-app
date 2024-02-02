@@ -13,6 +13,6 @@ namespace backend.Interface
         Task<Comment?> GetByIdAsync(int id);
         Task<Comment> CreateAsync(Comment commentModel);
         Task<Comment?> DeleteAsync(int id);
-        Task<Comment?> UpdateAsync(int id, UpdateCommentRequestDto commentDto);
+        Task<Comment?> UpdateAsync(int id, Comment commentModel);
     }
 }
